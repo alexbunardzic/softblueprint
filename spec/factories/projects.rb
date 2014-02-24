@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :project do
     name "MyString"
     description "MyString"
-    active false
+    active true
     created_by "MyString"
     from_ip "MyString"
   end
