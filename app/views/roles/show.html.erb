@@ -2,3 +2,4 @@
   <h2><%= @role.name %></h2>
   <%= simple_format(@role.description) %>
 </div>
+<%= link_to "Edit Role", [:edit, @project, @role] %>

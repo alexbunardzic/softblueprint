@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :role do
     name "MyString"
     description "MyText"
-    project nil
+    #project nil
   end
 end

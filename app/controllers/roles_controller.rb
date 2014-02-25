@@ -17,6 +17,19 @@ class RolesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @role.update(role_params)
+      flash[:notice] = "Role has been updated."
+      redirect_to [@project, @role]
+    else
+      flash[:alert] = "Role has not been updated."
+      render :edit
+    end
+  end
+
   private
 
   def set_project
