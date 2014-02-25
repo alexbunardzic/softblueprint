@@ -30,6 +30,14 @@ class RolesController < ApplicationController
     end
   end
 
+  def destroy
+    @role.destroy
+
+    flash[:notice] = "Role has been deleted."
+    
+    redirect_to @project
+  end
+
   private
 
   def set_project

@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 feature "Editing Roles" do
+  let!(:project) { FactoryGirl.create(:project) }
+  let!(:role) { FactoryGirl.create(:role, project: project) }
+
   before do
-    project = FactoryGirl.create(:project, name: "Sample project")
-    role = FactoryGirl.create(:role, project: project, name: "Make it reallty shine!", description: "Oh my!")
     visit '/'
     click_link project.name
     click_link role.name
@@ -11,14 +12,14 @@ feature "Editing Roles" do
   end
 
   scenario "updating a role for a project" do
-    fill_in "Name", with: "Make it really shine!"
+    #fill_in "Name", with: "Make it really shine!"
     click_button "Update Role"
 
     expect(page).to have_content("Role has been updated.")
 
-    #within("#role h2") do
-      #expect(page).to have_content role.name
-    #end
+    within("#role h2") do
+      expect(page).to have_content role.name
+    end
   end
 
   scenario "updating a role with invalid attributes" do
